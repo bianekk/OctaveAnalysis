@@ -1,13 +1,31 @@
+# https://qmlonline.kde.org/
+
 import sys
-import os
-from PyQt6.QtGui import QGuiApplication
-from PyQt6.QtQml import QQmlApplicationEngine
-from PyQt6.QtQuick import QQuickWindow
+from PyQt6.QtWidgets import (
+    QApplication,
+    QDialog,
+    QLabel,
+    QDialogButtonBox,
+    QFormLayout,
+    QLineEdit,
+    QVBoxLayout,
+)
 
 
-QQuickWindow.setSceneGraphBackend('software')
-app = QGuiApplication(sys.argv)
-engine = QQmlApplicationEngine()
-engine.quit.connect(app.quit)
-engine.load('UI/main.qml')
-sys.exit(app.exec())
+class Window(QDialog):
+    def __init__(self):
+        super().__init__(parent=None)
+        self.setWindowTitle("Kawka")
+
+        self.layout = QVBoxLayout()
+        self.label = QLabel("Third octave analysis app")
+
+        self.layout.addWidget(self.label)
+        self.setLayout(self.layout)
+
+
+if __name__ == "__main__":
+    app = QApplication([])
+    window = Window()
+    window.show()
+    sys.exit(app.exec())

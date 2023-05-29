@@ -6,6 +6,7 @@ ApplicationWindow {
     width: 600
     height: 500
     title: "Kawka"
+    color: "#1e262b"
 
     Text {
         anchors.centerIn: parent
@@ -13,3 +14,4 @@ ApplicationWindow {
         font.pixelSize: 24
     }
 }
+
